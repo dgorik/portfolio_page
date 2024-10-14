@@ -140,6 +140,8 @@ function sendMessage() {
 		message: document.getElementById('message').value
 	};
 
+	console.log(formData)
+
 	// Send form data to server using Fetch API
 	fetch('/.netlify/functions/submitMessage', {
 		method: 'POST',
