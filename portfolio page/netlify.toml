@@ -1,3 +1,2 @@
 [build]
   functions = "assets/functions"
-  command = "npm run build"
