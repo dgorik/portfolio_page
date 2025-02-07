@@ -4,9 +4,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const app = express();
-require('dotenv').config();
-
 const router = express.Router();
+require("dotenv").config({ path: "./config/.env" });
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
