@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
 
         let mailOptions = {
             from: `${name} <${email}>`, // Sender name and address
-            to: 'dg186533@gmail.com', // Recipient email address
+            to: 'dgorbachev06@gmail.com', // Recipient email address
             subject: 'New Portfolio Message', // Email subject
             text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // Email body
         };
