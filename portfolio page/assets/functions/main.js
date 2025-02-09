@@ -150,15 +150,9 @@ function sendMessage() {
 		},
 		body: JSON.stringify(formData)
 	})
-		.then(response => {
-			if (!response.ok) {
-				throw new Error('Network response was not ok');
-			}
-			return response.json();
-		})
-		.then(data => {
-			console.log('Success:', data);
-			alert('Message sent successfully!');
+		.then(response => response.text())
+		.then(html => {
+			document.body.innerHTML = html; // Replace entire body with new page
 		})
 		.catch(error => {
 			console.error('Error:', error);
