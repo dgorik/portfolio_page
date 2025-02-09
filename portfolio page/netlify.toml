@@ -1,7 +1,3 @@
 [build]
-  functions = "assets/functions"
-
-[[redirects]]
-  from = "/"
-  to = "/.netlify/functions/server"
-  status = 200
+  functions = "assets/functions/server"
+  command = "npm run build"
