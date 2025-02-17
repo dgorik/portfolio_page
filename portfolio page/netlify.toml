@@ -1,7 +1,3 @@
 [build]
   functions = "assets/functions/server"
 
-[[redirects]]
-  from = "/"
-  to = "/.netlify/functions/submitMessage"
-  status = 200

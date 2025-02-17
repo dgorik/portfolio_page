@@ -24,6 +24,7 @@ router.post('/', async (req, res) => {
     try {
         const { name, email, message } = req.body;
         console.log('Request body:', req.body);
+        process.env.EMAIL_USERNAME
 
         // Create a nodemailer transporter
         let transporter = nodemailer.createTransport({
