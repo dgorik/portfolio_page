@@ -1,8 +1,4 @@
 [build]
-  functions = "assets/functions/server"
+  functions = "/"
+  publish = "public" 
 
-[[redirects]]
-  from = "/success"
-  to = "/.netlify/functions/submitMessage/success"
-  status = 200
-  force = true

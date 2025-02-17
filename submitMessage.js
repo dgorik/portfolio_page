@@ -21,6 +21,10 @@ app.use(
 
 // Handle form submission
 
+router.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  });
+
 router.get("/success", (req, res) => {
     return res.sendFile(path.join(__dirname, 'public', 'email_success.html'));
 });
@@ -51,7 +55,7 @@ router.post('/', async (req, res) => {
 
         // Send email
         await transporter.sendMail(mailOptions);
-        return res.redirect('/.netlify/functions/submitMessage/success')
+        return res.redirect('/success')
     } catch (error) {
         console.error('Error occurred:', error);
         // Send error response to client
