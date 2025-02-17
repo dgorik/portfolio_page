@@ -10,6 +10,7 @@ require('dotenv').config();
 const router = express.Router();
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(process.cwd(), 'views'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
