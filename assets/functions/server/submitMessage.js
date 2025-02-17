@@ -47,10 +47,7 @@ router.post('/', async (req, res) => {
 
         // Send email
         await transporter.sendMail(mailOptions);
-        //console.log('Email sent successfully');
         return res.render('email_success.ejs')
-        //res.render("email_success.ejs");
-        //res.status(200).json({ message: 'Email sent successfully!' });
     } catch (error) {
         console.error('Error occurred:', error);
         // Send error response to client
