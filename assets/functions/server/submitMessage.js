@@ -9,8 +9,6 @@ require('dotenv').config();
 
 const router = express.Router();
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(process.cwd(), 'views'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
@@ -22,6 +20,11 @@ app.use(
 );
 
 // Handle form submission
+
+router.get("/success", (req, res) => {
+    return res.sendFile(path.join(process.cwd(), 'public', 'email_success.html'))
+});
+
 router.post('/', async (req, res) => {
     try {
         const { name, email, message } = req.body;
@@ -48,7 +51,7 @@ router.post('/', async (req, res) => {
 
         // Send email
         await transporter.sendMail(mailOptions);
-        return res.render('email_success.ejs')
+        return res.redirect('/.netlify/functions/submitMessage/success')
     } catch (error) {
         console.error('Error occurred:', error);
         // Send error response to client

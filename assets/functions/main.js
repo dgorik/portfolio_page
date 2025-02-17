@@ -148,10 +148,10 @@ function sendMessage() {
 		},
 		body: JSON.stringify(formData)
 	})
-		.then(response => response.text())
-		.then(html => {
-			document.body.innerHTML = html; // Replace entire body with new page
+		.then(response => {
+			window.location.href = '/.netlify/functions/submitMessage/success'
 		})
+		
 		.catch(error => {
 			console.error('Error:', error);
 		});
