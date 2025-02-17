@@ -22,7 +22,7 @@ app.use(
 // Handle form submission
 
 router.get("/success", (req, res) => {
-    return res.sendFile(path.join(__dirname, '..', '..', '..', 'public', 'email_success.html'));
+    return res.sendFile(path.join(__dirname, 'public', 'email_success.html'));
 });
 
 router.post('/', async (req, res) => {
