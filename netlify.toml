@@ -1,4 +1,2 @@
 [build]
   functions = "assets/functions/server"
-  command = "npm install && npm run build"
-
