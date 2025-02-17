@@ -149,7 +149,7 @@ function sendMessage() {
 		body: JSON.stringify(formData)
 	})
 		.then(response => {
-			window.location.href = '/.netlify/functions/submitMessage/success'
+			window.location.href = "/.netlify/functions/submitMessage/success" 
 		})
 		
 		.catch(error => {

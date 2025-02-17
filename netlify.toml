@@ -1,2 +1,8 @@
 [build]
   functions = "assets/functions/server"
+
+[[redirects]]
+  from = "/success"
+  to = "/.netlify/functions/submitMessage/success"
+  status = 200
+  force = true
