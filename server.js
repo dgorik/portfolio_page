@@ -26,10 +26,10 @@ router.get('/', (req, res) => {
   });
 
 router.get("/success", (req, res) => {
-    return res.sendFile(path.join(__dirname, 'public', 'email_success.html'));
+     res.sendFile(path.join(__dirname, 'public', 'email_success.html'));
 });
 
-router.post('/', async (req, res) => {
+router.post('/message', async (req, res) => {
     try {
         const { name, email, message } = req.body;
         console.log('Request body:', req.body);
@@ -55,7 +55,7 @@ router.post('/', async (req, res) => {
 
         // Send email
         await transporter.sendMail(mailOptions);
-        return res.redirect('/success')
+        return res.status(200).json({ message: 'Email sent successfully!' })
     } catch (error) {
         console.error('Error occurred:', error);
         // Send error response to client
@@ -65,7 +65,7 @@ router.post('/', async (req, res) => {
 
 // Convert Express app to a serverless function
 
-app.use('/.netlify/functions/submitMessage', router)
+app.use('/.netlify/functions/server', router)
 
 module.exports = app;
 

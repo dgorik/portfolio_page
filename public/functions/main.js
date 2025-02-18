@@ -141,7 +141,7 @@ function sendMessage() {
 	};
 
 	// Send form data to server using Fetch API
-	fetch('/.netlify/functions/submitMessage', {
+	fetch('/.netlify/functions/server/message', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json' // Set Content-Type header to application/json
@@ -149,7 +149,11 @@ function sendMessage() {
 		body: JSON.stringify(formData)
 	})
 		.then(response => {
-			window.location.href = "/.netlify/functions/submitMessage/success" 
+			if (response.ok) {
+				window.location.href = "/.netlify/functions/server/success"; // Redirect on success
+			} else {
+				console.error("Failed to send message");
+			}
 		})
 		
 		.catch(error => {
