@@ -13,11 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.use(
-    cors({
-        origin: 'null',
-    })
-);
+app.use(cors())
 
 // Handle form submission
 
@@ -26,7 +22,7 @@ router.get('/', (req, res) => {
   });
 
 router.get("/success", (req, res) => {
-     res.sendFile(path.join(__dirname, 'public', 'email_success.html'));
+     res.sendFile(path.join(__dirname, '..', 'public', 'email_success.html'));
 });
 
 router.post('/message', async (req, res) => {
@@ -63,10 +59,6 @@ router.post('/message', async (req, res) => {
     }
 });
 
-// Convert Express app to a serverless function
+app.use('/.netlify/functions/server', router);
 
-app.use('/.netlify/functions/server', router)
-
-module.exports = app;
-
-module.exports.handler = serverless(app)
+module.exports.handler = serverless(app);
