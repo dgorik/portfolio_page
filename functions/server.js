@@ -22,8 +22,7 @@ router.get('/', (req, res) => {
   });
 
 router.get("/success", (req, res) => {
-    res.redirect('/email_success.html');
-    //  res.sendFile(path.join(__dirname, 'public', 'email_success.html'));
+    res.redirect('/message_success');
 });
 
 router.post('/message', async (req, res) => {
