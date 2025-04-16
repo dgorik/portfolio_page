@@ -2178,7 +2178,8 @@ input[type="radio"]+label:before {
 	-ms-transition: opacity 0.2s ease-in-out;
 	transition: opacity 0.2s ease-in-out;
 	border-radius: 0.35em;
-	border: solid 3px rgba(255, 255, 255, 0.5);
+	border: solid 2px rgba(0, 0, 0, 0.2); /* subtle dark border for contrast */
+	background: rgba(0, 0, 0, 0.6); /* semi-transparent dark background */
 	color: #fff;
 	content: 'View';
 	display: inline-block;
@@ -2194,7 +2195,9 @@ input[type="radio"]+label:before {
 	text-decoration: none;
 	top: 50%;
 	white-space: nowrap;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7); /* stronger text shadow */
 }
+
 
 .image.thumb:hover:after {
 	opacity: 1.0;
