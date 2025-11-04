@@ -22,8 +22,8 @@ router.get('/', (req, res) => {
   });
 
 router.get("/success", (req, res) => {
-    res.redirect('/message_success');
-});
+    res.redirect('/email_success.html');
+})
 
 router.post('/message', async (req, res) => {
     try {
