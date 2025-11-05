@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Blog | Daniel Gorbachev</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+
+<body class="is-preload">
+
+  <div id="main">
+    <section id="blog">
+      <header class="major">
+        <h2>An Overlooked Hook: useEffect()</h2>
+      </header>
+
+      <p>
+        I’m going to be completely honest in admitting that I wasn’t much of a React developer prior to the official
+        release of Hooks — but that doesn’t mean I can’t feel for the developers who were ecstatic to switch over from
+        class-based components to Hooks.
+      </p>
+
+      <p>
+        The word “class,” component lifecycle methods, complex logic sharing, their verbosity — class-based components
+        were simply not pleasant to look at.
+      </p>
+
+      <p>
+        Spanning many sunny days of 2017–2018, the React team really sat down and started exploring a simpler mental
+        model for components. Fast-forward to February 2019, and the world saw React officially switch from the
+        class-based OOP model to a functional-programming-style framework.
+      </p>
+
+      <p>
+        There are a ton of built-in Hooks, and at this point, there are probably more custom ones built by developers
+        than humans on the planet — but there’s one Hook in particular that developers have a love–hate relationship
+        with: <code>useEffect()</code>.
+      </p>
+
+      <p>
+        The <code>useEffect</code> Hook in React is responsible for handling side effects. In other words, we tell React
+        which changes or events should trigger the execution of <code>useEffect</code> — for example, when a component
+        mounts, when a piece of state changes, or when certain data updates. It’s declarative, meaning we don’t
+        explicitly tell React when or how to run it — which can be both a blessing and a curse.
+      </p>
+
+      <p>
+        I like to think of <code>useEffect()</code> as an automatic transmission in a car. There’s a reason professional
+        drivers still use manual — it gives you more control, and you can shift gears exactly when you need to. But
+        there’s also a reason why more than 90% of cars in the U.S. are automatic: they’re easy to drive, you don’t
+        stall in traffic, and you don’t roll backward down a hill trying to find that perfect gas–brake–clutch balance.
+      </p>
+
+      <p>
+        Talk about a name that doesn’t tell you exactly what it does. With <code>useEffect</code>, you can’t tell when
+        it runs unless you inspect it. You can’t know what it does without reading the logic inside. And we don’t always
+        know what to use it for — data fetching? confetti animations after a render?
+      </p>
+
+      <p>
+        Most of the time, this ambiguity is fine. But sometimes, you hit a project that requires you to perform
+        something akin to a NASCAR-level turn in your codebase — downshifting gears and tapping directly into the
+        component’s lifecycle — and to your big disappointment, you realize: you can’t.
+      </p>
+
+      <p>
+        Class components handled sequential changes beautifully because their lifecycles were inherently ordered in time
+        — <code>componentDidMount</code>, <code>componentDidUpdate</code>, <code>componentWillUnmount</code>. You could
+        line up your logic like dominoes: fetch data after the component mounts, trigger an animation once the data
+        arrives, clean everything up before it unmounts. Each step had a clear place in the timeline, and you always
+        knew exactly when something happened.
+      </p>
+
+      <p>
+        With Hooks, that neat chronological flow disappears. <code>useEffect</code> is declarative, not sequential — it
+        doesn’t guarantee timing beyond “after render.” You can split logic into multiple effects, but React decides
+        when each runs based on dependencies, not the developer’s step-by-step intent. It only guarantees that your
+        effect runs sometime after the component has rendered — not synchronously, not before paint, and not in any
+        fixed order relative to other effects. It’s React saying, “I’ll handle the scheduling; you just tell me what
+        should stay in sync,” which is perfectly fine — unless you need to drive like a NASCAR racer and take tight,
+        deliberate control of every turn.
+      </p>
+
+      <p>
+        With Hooks, we have… one vague “lifecycle” method: <code>useEffect()</code>. It’s a bit like opening every class
+        in your codebase and seeing nothing but <code>doWork()</code> methods.
+      </p>
+
+      <p>
+        Once you stop thinking about when something happens and start thinking about what your component depends on,
+        <code>useEffect</code> starts feeling almost flawless. Unfortunately, sometimes… we just can’t stop thinking
+        about when something happens.
+      </p>
+    </section>
+
+    <footer>
+      <p style="text-align: right; margin-top: 2rem;">
+        <a href="../blog.html"><em>← Back to all posts</em></a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="../functions/jquerymin.js"></script>
+  <script src="../functions/main.js"></script>
+</body>
+
+</html>
